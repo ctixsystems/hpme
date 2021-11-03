@@ -1,6 +1,6 @@
 from geom2d.point import Point
 from geom2d.circle import Circle
-from gem2d.segment import Segment
+from geom2d.segment import Segment
 
 def make_circle_from_points(a: Point, b: Point, c: Point):
     chord_one_bisec = Segment(a,b).bisector

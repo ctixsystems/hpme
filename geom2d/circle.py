@@ -20,7 +20,7 @@ class Circle:
             and are_close_enough(self.radius, other.radius)
 
     def __str__(self):
-        return f'circle c = {self.center}, r = {Self.radius}'
+        return f'circle c = {self.center}, r = {self.radius}'
 
     @property
     def area(self):

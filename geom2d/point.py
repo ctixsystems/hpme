@@ -35,7 +35,7 @@ class Point:
         return nums.are_close_enough(self.x, other.x) and \
             nums.are_close_enough(self.y, other.y)
 
-    def __string__(self):
+    def __str__(self):
         return f'({self.x},{self.y})'
 
     def displaced(self, vector, times=1):

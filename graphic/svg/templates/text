@@ -1,0 +1,4 @@
+<text x="{{x}}" y="{{y}}" dx="{{dx}}" dy="{{dy}}" {{attrs}}>
+    {{text}}
+</text>
+
