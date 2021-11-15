@@ -4,7 +4,7 @@ from eqs.vector import Vector
 
 class VectorTest(unittest.TestCase):
     def test_length(self):
-        self.assertEqual(5, Vector(5).length())
+        self.assertEqual(5, Vector(5).length)
 
     def test_unset_value_is_zero(self):
         vector = Vector(2)
