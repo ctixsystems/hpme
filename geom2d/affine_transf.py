@@ -6,6 +6,23 @@ from geom2d.circle import Circle
 from geom2d.nums import are_close_enough
 
 class AffineTransform:
+
+    """
+    An affine transformation is equivalent to a linear
+    transformation plus a translation.
+    An affine transformation can be defined using matrix notation:
+    `⎡ sx  shx tx ⎤`\n
+    `⎪ shy sy  ty ⎪`\n
+    `⎣ 0   0   1  ⎦`\n
+
+    Affine transformations have the following terms:
+    - `sx`: scale in the x-direction
+    - `sy`: scale in the y-direction
+    - `tx`: translation in the x-direction
+    - `ty`: translation in the y-direction
+    - `shx`: shear in the x-direction
+    - `shy`: shear in the y-direction
+    """
     def __init__(self, sx=1, sy=1, tx=0, ty=0, shx=0, shy=0):
         self.sx = sx
         self.sy = sy
@@ -27,6 +44,11 @@ class AffineTransform:
             and are_close_enough(self.ty, other.ty) \
             and are_close_enough(self.shx, other.shx) \
             and are_close_enough(self.shy, other.shy)
+
+    def __str__(self):
+        return f'(sx: {self.sx}, sy: {self.sy}, ' \
+               + f'shx: {self.shx}, shy: {self.shy}, ' \
+               + f'tx: {self.tx}, ty: {self.ty})'
 
     def apply_to_point(self, point: Point):
         return Point(

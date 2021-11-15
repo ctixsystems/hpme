@@ -36,8 +36,8 @@ class Circle:
     def to_polygon(self, divisions: int):
         angle_delta = 2 * math.pi / divisions
         return Polygon(
-            self.__point_at_angle(angle_delta * i)
-            for i in range(divisions)
+            [self.__point_at_angle(angle_delta * i)
+            for i in range(divisions)]
         )
 
     def __point_at_angle(self, angle: float):

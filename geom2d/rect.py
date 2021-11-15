@@ -1,5 +1,6 @@
 from geom2d.point import Point
 from geom2d.size import Size
+from geom2d.polygon import Polygon
 from geom2d.open_interval import OpenInterval
 
 class Rect:
@@ -58,7 +59,39 @@ class Rect:
 
         return Rect(
             Point(h_overlap.start, v_overlap.start),
-            Size(h_overlapo.length, v_overlap.length)
+            Size(h_overlap.length, v_overlap.length)
         )
 
+    def to_polygon(self):
+        """
+        Creates a `Polygon` equivalent to this rectangle.
+        The polygon is made of the rectangle vertices in the
+        following order:
+            - (left, bottom) ≡ origin
+            - (right, bottom)
+            - (right, top)
+            - (left, top)
+        :return: `Polygon`
+        """
+        return Polygon([
+            self.origin,
+            Point(self.right, self.bottom),
+            Point(self.right, self.top),
+            Point(self.left, self.top)
+        ])
+
+    def __eq__(self, other):
+        """
+        Two rects are equal if their origins and sizes are equal.
+        :param other: `Rect`
+        :return: are the rects equal?
+        """
+        if self is other:
+            return True
+
+        if not isinstance(other, Rect):
+            return False
+
+        return self.origin == other.origin \
+               and self.size == other.size   
 
